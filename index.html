@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: black; /* Changed to black */
+            color: white; /* Added to ensure text is visible on black background */
+        }
+        #app {
+            background-color: #333; /* Darkened the app background for contrast */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Adjusted for visibility */
+        }
+        h1 {
+            text-align: center;
+            color: white; /* Changed to white for visibility on dark background */
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #1a1a1a; /* Darkened for contrast */
+            border: none;
+            cursor: pointer;
+            color: white; /* Ensure text is visible */
+        }
+        .tab-button.active {
+            background-color: #00aa00; /* Changed to green */
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        form, #searchInput {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #00aa00; /* Changed to green */
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        button:hover {
+            background-color: #920000; /* Darker green for hover state */
+        }
+        #contactList, #searchResults {
+            list-style-type: none;
+            padding: 0;
+        }
+        .contact {
+            background-color: #444; /* Darkened for contrast */
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        .contact button {
+            margin-left: 10px;
+            background-color: #00aa00; /* Changed to green */
+        }
+        .contact button:hover {
+            background-color: #008800; /* Darker green for hover state */
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Phone Book</h1>
+        <div class="tabs">
+            <button class="tab-button active" data-tab="search">Search</button>
+            <button class="tab-button" data-tab="add">Add Contact</button>
+            <button class="tab-button" data-tab="contacts">My Contacts</button>
+        </div>
+        <div id="search" class="tab-content active">
+            <input type="text" id="searchInput" placeholder="Search contacts...">
+            <ul id="searchResults"></ul>
+        </div>
+        <div id="add" class="tab-content">
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="tel" id="number" placeholder="Phone Number" required pattern="[0-9]{10}">
+                <input type="email" id="email" placeholder="Email" required>
+                <button type="submit">Add Contact</button>
+            </form>
+        </div>
+        <div id="contacts" class="tab-content">
+            <ul id="contactList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
